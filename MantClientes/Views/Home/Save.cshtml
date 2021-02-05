@@ -1,0 +1,30 @@
+﻿
+@model MantClientes.Models.Cliente
+<h2>Save</h2>
+@using (Html.BeginForm("save", "home", FormMethod.Post, new { id = "popupForm" }))
+{
+    if (Model != null && Model.ClienteID > 0)
+    {
+        @Html.HiddenFor(a => a.ClienteID)
+    }
+
+    <div class="form-group">
+        <label>Nombre</label>
+        @Html.TextBoxFor(a => a.Nombre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Nombre)
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        @Html.TextBoxFor(a => a.Telefono, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Telefono)
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(a => a.Direccion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Direccion)
+    </div>
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}
